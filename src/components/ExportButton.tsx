@@ -1,8 +1,12 @@
+// import L from 'leaflet'
+// import type { FeatureCollection } from 'geojson'
+import React from 'react'
 import L from 'leaflet'
 import type { FeatureCollection } from 'geojson'
 
+
 type Props = {
-  featureGroupRef: React.RefObject<L.FeatureGroup>
+  featureGroupRef: React.RefObject<L.FeatureGroup | null>
 }
 
 export default function ExportButton({ featureGroupRef }: Props) {

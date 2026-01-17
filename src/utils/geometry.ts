@@ -49,7 +49,15 @@ export function applyPolygonRules(
     if (!turf.booleanIntersects(result, old)) continue
 
     // ✂️ REAL OVERLAP → TRIM
-    const diff = turf.difference(result, old)
+    // const diff = turf.difference(result, old)
+    // const diff = turf.difference(
+    //   turf.featureCollection([result, old])
+    // )
+    const diff = turf.difference({
+      type: 'FeatureCollection',
+      features: [result, old]
+    })
+    
     if (!diff) return null
 
     if (diff.geometry.type === 'MultiPolygon') {
