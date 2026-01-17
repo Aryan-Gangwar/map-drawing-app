@@ -1,0 +1,280 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* ===== SEARCH BAR (OSM STYLE) ===== */
+.leaflet-control-geocoder {
+  width: 340px;
+  margin-top: 12px;
+  margin-left: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  background: #2c3539;
+}
+
+.leaflet-control-geocoder-form input {
+  width: 320px;
+  height: 38px;
+  font-size: 14px;
+  padding: 6px 12px;
+  background: #2c3539;          /* dark background */
+  color: #ffffff; 
+}
+
+/* ===== LEFT CONTROLS STACK FIX ===== */
+.leaflet-top.leaflet-left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.welcome-panel {
+  position: absolute;
+  top: 70px;
+  left: 12px;
+  width: 300px;
+  background: #1f2937; /* dark */
+  color: #fff;
+  padding: 14px;
+  border-radius: 8px;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+}
+
+.welcome-panel h2 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.welcome-panel p {
+  font-size: 13px;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.welcome-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.welcome-actions button {
+  flex: 1;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.welcome-actions .primary {
+  background: #3b82f6;
+  color: white;
+}
+
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 48px;
+  width: 100%;
+  background: #2c3539;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.map-wrapper {
+  position: absolute;
+  top: 48px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+/* ===============================
+   ZOOM CONTROLS (+ / -)  ✅ OK
+   =============================== */
+/* ===============================
+   ZOOM + / −  (MATCH DRAW TOOLS)
+   =============================== */
+
+.leaflet-control-zoom a {
+  width: 40px !important;
+  height: 40px !important;
+  line-height: 40px !important;
+
+  background: #2c3539 !important;
+  color: #ffffff !important;
+  padding: 4px;
+  font-size: 20px !important;
+  font-weight: bold;
+
+  border-radius: 0px !important;
+  border: 1px solid #2c3539 !important;
+
+  box-shadow: none !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background: #2c3539 !important;
+  color: #ffffff !important;
+}
+
+
+/* ===============================
+   DRAW / EDIT TOOLBAR  🔥 FIXED
+   =============================== */
+/* ===== DRAW TOOLBAR CONTAINER COLOR ONLY ===== */
+.leaflet-draw-toolbar {
+  background-color: #2c3539;
+  color: white;
+  padding: 4px;
+}
+
+/* ===== DRAW ICONS – DON'T TOUCH BACKGROUND IMAGE ===== */
+.leaflet-draw-toolbar a {
+  width: 40px !important;
+  height: 40px !important;
+
+  background-color: transparent !important; /* 🔥 important */
+  border: 1px solid #2c3539 !important;
+  filter: invert(1) brightness(2);
+}
+
+/* hover */
+.leaflet-draw-toolbar a:hover {
+  background-color: rgba(255,255,255,0.1) !important;
+}
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modal-card {
+  width: 380px;
+  background: linear-gradient(
+    180deg,
+    #1f2937,
+    #111827
+  );
+  border-radius: 14px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+  color: #f9fafb;
+  overflow: hidden;
+  animation: modalPop 0.25s ease;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 18px;
+  font-size: 16px;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.modal-icon {
+  font-size: 18px;
+}
+
+.modal-body {
+  padding: 18px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #d1d5db;
+}
+
+.modal-footer {
+  padding: 14px 18px;
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.modal-footer button {
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #1d4ed8
+  );
+  border: none;
+  color: white;
+  padding: 7px 18px;
+  font-size: 13px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.modal-footer button:hover {
+  filter: brightness(1.1);
+}
+
+@keyframes modalPop {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+leaflet-control-geocoder {
+  background: #2c3539;
+}
+
+.leaflet-control-geocoder-form input {
+  background: #ffffff;
+  color: #000000;
+  caret-color: #000000;
+}
+
+/* ===== LEFT CONTROLS CONTAINER ===== */
+.left-controls {
+  position: absolute;
+  top: 70px;          /* ⬅️ niche laaya */
+  left: 12px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+
+/* 🔥 EXPORT BUTTON BOTTOM LEFT */
+.export-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+
+  background: #1f2937;
+  color: #ffffff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.export-btn:hover {
+  background: #374151;
+}
